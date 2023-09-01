@@ -16,8 +16,7 @@ class ECSFargateStack(cdk.Stack):
         cluster = ecs.Cluster(
             self, 'ECSFargate',
             vpc=vpc,
-            container_insights=True,
-            enableFargateCapacityProviders=True
+            container_insights=True
         )
 
         serviceDefinitions = [
