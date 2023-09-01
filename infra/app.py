@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-
 import os
 import aws_cdk as cdk
 
@@ -12,7 +11,9 @@ class GravitonSpotWorkshop(cdk.App):
         def __init__(self, **kwargs):
             super().__init__(**kwargs)
             self.stack_name = "GravitonSpotWorkshop"
+            self.base_module = VPCStack(self, self.stack_name + "-base")
             self.pipeline_module = PipelineStack(self, self.stack_name + "-pipeline")
+            self.ecs_fargate_module = ECSStack(self, self.stack_name + "-ecs-fargate")
 
 if __name__ == '__main__':
     app = GravitonSpotWorkshop()
